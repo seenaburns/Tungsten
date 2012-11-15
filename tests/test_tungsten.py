@@ -32,15 +32,15 @@ class TungstenTestSuite(unittest.TestCase):
 
 if __name__ == '__main__':
     # Get appid from command line
-    parser = argparse.ArgumentParser(description='Tungsten Test Suite')
-    parser.add_argument('appid', help='AppID')
-    parser.add_argument('unittest_args', nargs='*')
-    args = parser.parse_args()
+    #parser = argparse.ArgumentParser(description='Tungsten Test Suite')
+    #parser.add_argument('appid', help='AppID')
+    #parser.add_argument('unittest_args', nargs='*')
+    #args = parser.parse_args()
 
-    appid = args.appid
+    appid = sys.argv[1]
 
     # Change sys.argv back to rest of arguments for unit test
-    sys.argv[1:] = args.unittest_args
+    sys.argv[1:] = sys.argv[2:]
 
     # Run unit tests
     unittest.main()

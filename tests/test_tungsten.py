@@ -31,12 +31,7 @@ class TungstenTestSuite(unittest.TestCase):
         self.assertEqual(result.error, None)
 
 if __name__ == '__main__':
-    # Get appid from command line
-    #parser = argparse.ArgumentParser(description='Tungsten Test Suite')
-    #parser.add_argument('appid', help='AppID')
-    #parser.add_argument('unittest_args', nargs='*')
-    #args = parser.parse_args()
-
+    # Get appid from first argument of commandline
     appid = sys.argv[1]
 
     # Change sys.argv back to rest of arguments for unit test

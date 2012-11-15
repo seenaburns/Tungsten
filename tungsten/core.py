@@ -30,13 +30,17 @@ class Tungsten(object):
 class Result(object):
     def __init__(self, xml_result = None):
         # Construct XML tree
-        self.xml = xml_result
         self.xml_tree = ElementTree(fromstring(xml_result))
 
-        # Success from queryresult of xml
-        self.success = self.xml_tree.getroot().get('success') == 'true'
+    @property
+    def success(self):
+        # Success from queryresult
+        return self.xml_tree.getroot().get('success') == 'true'
 
-        # Error from the error xml group
-        self.error = None
-        if not self.success:
-            self.error = self.xml_tree.find('error').find('msg').text
+    @property
+    def error(self):
+        # Error from XML group
+        error = self.xml_tree.find('error')
+        if error is not None:
+            return error.find('msg').text
+        return None

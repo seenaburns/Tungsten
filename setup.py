@@ -5,6 +5,8 @@ setup(
     name='Tungsten',
     version=tungsten.__version__,
     author='Seena Burns',
+    author_email='hello@ethanbird.com',
+    url='https://github.com/seenaburns/Tungsten',
     packages={'tungsten': 'tungsten'},
     license=open('LICENSE.txt').read(),
     description='Wolfram Alpha API built for Python.',

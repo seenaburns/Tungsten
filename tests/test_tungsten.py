@@ -24,6 +24,12 @@ class TungstenTestSuite(unittest.TestCase):
         self.assertFalse(result.success)
         self.assertEqual(result.error, 'Invalid appid')
 
+    def test_pi(self):
+        client = tungsten.Tungsten(appid)
+        result = client.query('pi')
+        self.assertTrue(result.success)
+        self.assertEqual(result.error, None)
+
 if __name__ == '__main__':
     # Get appid from command line
     parser = argparse.ArgumentParser(description='Tungsten Test Suite')

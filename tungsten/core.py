@@ -64,3 +64,31 @@ class Result(object):
         if error is not None:
             return error.find('msg').text
         return None
+
+    @property
+    def pods(self):
+        """Return list of all Pod objects in result"""
+        # Return empty list if xml_tree is not defined (error Result object)
+        if not self.xml_tree:
+            return []
+        
+        # Create a Pod object for every pod group in xml
+        return [Pod(elem) for elem in self.xml_tree.findall('pod')]
+
+class Pod(object):
+    def __init__(self, pod_root):
+        """Create a Pod object using the ElementTree at the root"""
+        self.root = pod_root
+        self.xml_tree = ElementTree(pod_root)
+
+    @property
+    def title(self):
+        return self.root.get('title')
+
+    @property
+    def id(self):
+        return self.root.get('id')
+
+    @property
+    def scanner(self):
+        return self.root.get('scanner')

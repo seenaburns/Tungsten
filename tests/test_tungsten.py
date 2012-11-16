@@ -98,7 +98,7 @@ class TungstenTestSuite(unittest.TestCase):
         
         for pod in result.pods:
             self.assertIn(pod.scanner, ['Numeric'])
-            for format in pod.formats:
+            for format in pod.format.keys():
                 self.assertIn(format, ['minput', 'moutput'])
 
 if __name__ == '__main__':

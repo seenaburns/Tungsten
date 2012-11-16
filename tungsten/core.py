@@ -33,7 +33,6 @@ class Tungsten(object):
         # Catch any issues with connecting to Wolfram Alpha API
         try:
             r = requests.get("http://api.wolframalpha.com/v2/query", params=payload)
-            print r.text
 
             # Raise Exception (to be returned as error)
             if r.status_code != 200:
@@ -105,3 +104,16 @@ class Pod(object):
     @property
     def scanner(self):
         return self.root.get('scanner')
+
+    @property
+    def formats(self):
+        formats = []
+
+        # Check all the tags in subpods for formats
+        # 'state' is a tag but not an acceptable format
+        for subpod in self.root.findall('subpod'):
+            for tag in list(subpod):
+                if tag.tag not in formats and tag.tag is not 'state':
+                    formats.append(tag.tag)
+
+        return formats

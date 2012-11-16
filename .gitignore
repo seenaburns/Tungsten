@@ -2,3 +2,4 @@
 venv/
 dist/
 MANIFEST
+Tungsten.egg-info/

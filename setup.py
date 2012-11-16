@@ -1,9 +1,10 @@
-import tungsten
 from distutils.core import setup
+
+required = ['requests']
 
 setup(
     name='Tungsten',
-    version=tungsten.__version__,
+    version='0.1.0',
     author='Seena Burns',
     author_email='hello@ethanbird.com',
     url='https://github.com/seenaburns/Tungsten',
@@ -11,11 +12,8 @@ setup(
     description='Wolfram Alpha API built for Python.',
     long_description=open('README.md').read() + '\n\n' + 
                      open('HISTORY.md').read(),   
-    packages={'tungsten': 'tungsten'},
-    package_data={'': ['LICENSE.txt']},
-    install_requires=[
-        'requests >= 0.14.1',
-    ],
+    packages=['tungsten'],
+    install_requires = required,
     classifiers=(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

@@ -7,15 +7,17 @@ setup(
     author='Seena Burns',
     author_email='hello@ethanbird.com',
     url='https://github.com/seenaburns/Tungsten',
-    packages={'tungsten': 'tungsten'},
     license=open('LICENSE.txt').read(),
     description='Wolfram Alpha API built for Python.',
-    long_description=open('README.md').read(),
+    long_description=open('README.md').read() + '\n\n' + 
+                     open('HISTORY.md').read(),   
+    packages={'tungsten': 'tungsten'},
+    package_data={'': ['LICENSE.txt']},
     install_requires=[
-        "requests",
+        'requests >= 0.14.1',
     ],
     classifiers=(
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: OSI Approved :: BSD License',

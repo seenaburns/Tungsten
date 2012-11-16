@@ -98,8 +98,11 @@ class TungstenTestSuite(unittest.TestCase):
         
         for pod in result.pods:
             self.assertIn(pod.scanner, ['Numeric'])
-            for format in pod.format.keys():
-                self.assertIn(format, ['minput', 'moutput'])
+            for format in pod.format:
+                self.assertIn(format, ['minput', 'moutput'])   
+
+        self.assertEqual(result.pods[0].format['minput'], ['N[Pi, 71]'])
+        self.assertEqual(result.pods[1].format['minput'], ['Element[Pi, Algebraics]'])
 
 if __name__ == '__main__':
     # Get appid from first argument of commandline

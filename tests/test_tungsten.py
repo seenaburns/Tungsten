@@ -1,6 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Tungsten Test Suite
+~~~~~~~~~~~~~~~~~~~
+
+A series of unittests to check the basic functionality of the Tungsten API.
+
+NOTE: Test suite could use some attention with a more methodical approach
+to testing results and important edge cases.
+
+"""
+
 import unittest
 import argparse
 
@@ -20,7 +31,6 @@ class TungstenTestSuite(unittest.TestCase):
     def test_error_appid(self):
         """
         Test error response of a faulty appid
-        client and an 'error' result object tested
         """
 
         client = tungsten.Tungsten('XXXX')
@@ -32,7 +42,6 @@ class TungstenTestSuite(unittest.TestCase):
     def test_pi(self):
         """
         Test repsonse of a standard query, namely the API functionality
-        client, result and pods tested
         """
 
         client = tungsten.Tungsten(appid)
@@ -75,6 +84,22 @@ class TungstenTestSuite(unittest.TestCase):
         self.assertEqual(titles, expected_titles)
         self.assertEqual(ids, expected_ids)
         self.assertEqual(scanners, expected_scanners)
+
+    def test_params(self):
+        """
+        Test query / response of query with specified parameters
+        """
+        client = tungsten.Tungsten(appid)
+
+        # Parameters as list and as string
+        params = {'format': ['minput', 'moutput'], 'scanner': 'numeric'}
+
+        result = client.query('pi', params)
+        
+        for pod in result.pods:
+            self.assertIn(pod.scanner, ['Numeric'])
+            for format in pod.formats:
+                self.assertIn(format, ['minput', 'moutput'])
 
 if __name__ == '__main__':
     # Get appid from first argument of commandline

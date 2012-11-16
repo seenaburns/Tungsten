@@ -15,12 +15,25 @@ class Tungsten(object):
         """Create a Tungsten object with a set appid"""
         self.appid = appid
 
-    def query(self, input = ''):
+    def query(self, input = '', params = {}):
         """Query Wolfram Alpha and return a Result object"""
+        # Get and construct query parameters 
+        # Default parameters
+        payload = {'input': input,
+                    'appid': self.appid}
+        # Additional parameters (from params), formatted for url
+        for key, value in params.items():
+            # Check if value is not string type (needs to be comma joined)
+            # Else value is just a single string
+            if not isinstance(value, basestring):
+                payload[key] = ','.join(value)
+            else:
+                payload[key] = value
+
         # Catch any issues with connecting to Wolfram Alpha API
         try:
-            payload = {'input': input, 'appid': self.appid}
             r = requests.get("http://api.wolframalpha.com/v2/query", params=payload)
+            print r.text
 
             # Raise Exception (to be returned as error)
             if r.status_code != 200:

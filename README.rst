@@ -13,7 +13,7 @@ Tungsten is a dead simple Wolfram Alpha API wrapper built for python, with all t
     for pod in pods:
         print pod.scanner
 
-Of course, that stuff is pretty simple. Tungsten can handle a lot more.:
+Of course, that stuff is pretty simple. Tungsten can handle a lot more.
 
 ::
 
@@ -32,7 +32,7 @@ Of course, that stuff is pretty simple. Tungsten can handle a lot more.:
 
 BSD licensed. Hosted on Github and available on PyPI.
 
-Installation:
+Installation: ::
 
     pip install tungsten
 

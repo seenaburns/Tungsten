@@ -24,7 +24,7 @@ Of course, that stuff is pretty simple. Tungsten can handle a lot more.
     image = result.pods[1].format['img']
 
     # Piping queries
-    piped_result = query(mathematica_input)
+    piped_result = client.query(mathematica_input)
 
 BSD licensed. Hosted on Github and available on PyPI.
 

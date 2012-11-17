@@ -1,7 +1,9 @@
 Tungsten
 --------
 
-Tungsten is a dead simple Wolfram Alpha API wrapper built for python, with all the power and none of the hassle. Check it out:::
+Tungsten is a dead simple Wolfram Alpha API wrapper built for python, with all the power and none of the hassle. Check it out:
+
+::
 
     import tungsten
 
@@ -11,7 +13,9 @@ Tungsten is a dead simple Wolfram Alpha API wrapper built for python, with all t
     for pod in pods:
         print pod.scanner
 
-Of course, that stuff is pretty simple. Tungsten can handle a lot more.::
+Of course, that stuff is pretty simple. Tungsten can handle a lot more.:
+
+::
 
     # Query parameters
     params = {'format': ['plaintext', 'image', 'minput', 'moutput'],

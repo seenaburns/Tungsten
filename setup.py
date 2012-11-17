@@ -10,8 +10,8 @@ setup(
     url='https://github.com/seenaburns/Tungsten',
     license=open('LICENSE.txt').read(),
     description='Wolfram Alpha API built for Python.',
-    long_description=open('README.md').read() + '\n\n' + 
-                     open('HISTORY.md').read(),   
+    long_description=open('README.rst').read() + '\n\n' + 
+                     open('HISTORY.rst').read(),   
     packages=['tungsten'],
     install_requires = required,
     classifiers=(

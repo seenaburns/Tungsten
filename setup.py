@@ -4,7 +4,7 @@ required = ['requests']
 
 setup(
     name='Tungsten',
-    version='0.1.0',
+    version='0.1.1',
     author='Seena Burns',
     author_email='hello@ethanbird.com',
     url='https://github.com/seenaburns/Tungsten',

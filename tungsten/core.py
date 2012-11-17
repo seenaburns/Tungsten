@@ -17,15 +17,14 @@ class Tungsten(object):
 
     def query(self, input = '', params = {}):
         """Query Wolfram Alpha and return a Result object"""
-        # Get and construct query parameters 
+        # Get and construct query parameters
         # Default parameters
         payload = {'input': input,
                     'appid': self.appid}
         # Additional parameters (from params), formatted for url
         for key, value in params.items():
-            # Check if value is not string type (needs to be comma joined)
-            # Else value is just a single string
-            if not isinstance(value, basestring):
+            # Check if value is list or tuple type (needs to be comma joined)
+            if isinstance(value, (list, tuple)):
                 payload[key] = ','.join(value)
             else:
                 payload[key] = value
@@ -83,7 +82,7 @@ class Result(object):
         # Return empty list if xml_tree is not defined (error Result object)
         if not self.xml_tree:
             return []
-        
+
         # Create a Pod object for every pod group in xml
         return [Pod(elem) for elem in self.xml_tree.findall('pod')]
 
@@ -124,7 +123,7 @@ class Pod(object):
                 # skip any subpod state xml groups (not a format)
                 if elem.tag == 'state':
                     continue
-            
+
                 # Content of elem (specific format)
                 content = elem.text
 

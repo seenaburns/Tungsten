@@ -30,7 +30,7 @@ Of course, that stuff is pretty simple. Tungsten can handle a lot more.
     # Piping queries
     piped_result = client.query(mathematica_input)
 
-BSD licensed. Hosted on Github and available on PyPI.
+BSD licensed. Hosted on `Github <https://github.com/seenaburns/Tungsten>`_ and available on PyPI. Documentation on `Read The Docs <https://tungsten.readthedocs.org/en/latest/>`_
 
 Installation: ::
 

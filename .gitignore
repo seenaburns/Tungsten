@@ -3,3 +3,5 @@ venv/
 dist/
 MANIFEST
 Tungsten.egg-info/
+.DS_Store
+docs/_build/

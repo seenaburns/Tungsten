@@ -24,8 +24,8 @@ From here, operating Tungsten is as easy as creating a Tungsten client object (r
 
 	import tungsten
     
-    client = tungsten.Tungsten('appid')
-    result = client.query('pi')
+	client = tungsten.Tungsten('appid')
+	result = client.query('pi')
 
 Additional query parameters (query parameter documentation on the `Wolfram Alpha API documentation <http://products.wolframalpha.com/api/documentation.html#8>`_) can also be passed to the query using a dictionary:
 

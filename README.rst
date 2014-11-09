@@ -10,7 +10,7 @@ Tungsten is a dead simple Wolfram Alpha API wrapper built for python, with all t
     client = tungsten.Tungsten('appid')
     result = client.query('pi')
 
-    for pod in pods:
+    for pod in result.pods:
         print pod.scanner
 
 Of course, that stuff is pretty simple. Tungsten can handle a lot more.
